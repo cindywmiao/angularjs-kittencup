@@ -8,3 +8,5 @@ angularjs 练习题
 
 ### 练习题2 Filter & Order 
 
+![image](https://github.com/cindywmiao/angularjs-kittencup/blob/master/images/image2.png)
+
