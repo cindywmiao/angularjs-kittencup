@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="firstController">
+        <!--123,456,789-->
+        <p>{{ 123456789 | number }}</p>
+
+        <!--123,456,789.000-->
+        <p>{{ 123456789 | number:3 }}</p>
+
+        <!--$9,999.00-->
+        <p>{{ 9999 | currency }}</p>
+
+        <!--rmb9,999.00-->
+        <p>{{ 9999 | currency:'rmb' }}</p>
+
+        <!--<p>{{ 123456789 | date }}</p>-->
+        <!--<p>{{ 11112016 | date }}</p>-->
+
+        <!--Jan 18, 2017 4:26:54 PM-->
+        <p>{{ today | date:'medium' }}</p>
+    </div>
+
+
+    <script type="text/javascript" src="../../vendor/angular/angularjs.js"></script>
+    <script type="text/javascript" src="app/index.js"></script>
+
+</body>
+</html>

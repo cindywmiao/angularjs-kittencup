@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="firstController">
+        <input type="text" ng-model="data.name" value=""/>
+        <p>
+            First: <div ng-bind="data.name"></div>
+        </p>
+    </div>
+
+    <div ng-controller="secondController">
+        <p>
+            Second: <div ng-bind="data.name"></div>
+        </p>
+    </div>
+
+    <script type="text/javascript" src="../../vendor/angular/angularjs.js"></script>
+    <script type="text/javascript" src="app/index.js"></script>
+
+</body>
+</html>

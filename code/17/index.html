@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="firstController">
+        <p>{{ [1,2,3,4,5,6] | limitTo:5 }}</p>
+
+        <p>{{ [1,2,3,4,5,6] | limitTo:-5 }}</p>
+
+        <p>{{ data.name | lowercase }}</p>
+
+        <p>{{ data.name | uppercase }}</p>
+
+        <p>{{ data.city | filter: {location: '2'} }}</p>
+
+        <p>{{ data.city | orderBy: 'name' }}</p>
+
+        <p>{{ data.city | orderBy: '-name' }}</p>
+
+        <p>{{ data.city | filter: checkName }}</p>
+    </div>
+
+
+    <script type="text/javascript" src="../../vendor/angular/angularjs.js"></script>
+    <script type="text/javascript" src="app/index.js"></script>
+
+</body>
+</html>

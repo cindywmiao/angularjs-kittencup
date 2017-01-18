@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="../../vendor/bootstrap3/css/bootstrap.min.css">
+    <script type="text/javascript" src="../../vendor/angular/angularjs.js"></script>
+
+    <style>
+        .orderColor{
+            color:lightpink;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text"  ng-model="search" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container" ng-controller="productController">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th ng-click="changeOrder('id')" ng-class="{dropup: order == ''}">
+                        Product Number
+                        <span class="caret" ng-class="{orderColor: orderType === 'id'}"></span>
+                    </th>
+                    <th ng-click="changeOrder('name')" ng-class="{dropup: order == ''}">
+                        Product Name
+                        <span class="caret" ng-class="{orderColor: orderType === 'name'}"></span>
+                    </th>
+                    <th ng-click="changeOrder('price')" ng-class="{dropup: order == ''}">
+                        Product Price
+                        <span class="caret" ng-class="{orderColor: orderType === 'price'}"></span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="product in productData | filter : {id : search} | orderBy : order + orderType">
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price | currency }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <script type="text/javascript" src="app/index.js"></script>
+
+</body>
+</html>
