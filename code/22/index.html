@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../../vendor/angular/angularjs.js"></script>
+    <script type="text/javascript" src="app/index.js"></script>
+
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+
+</head>
+<body ng-app="myApp">
+
+    <!--//$scope.cityArr = XXX-->
+    <div ng-controller="firstController">
+        <ul ng-class="{red:status}" ng-init="cityArr = ['Shanghai', 'Beijing', 'Hongkong']">
+            <li ng-repeat="city in cityArr">
+                <span>index : {{ $index }}</span>
+                <span>first : {{ $first }}</span>
+                <span>middle : {{ $middle }}</span>
+                <span>last : {{ $last }}</span>
+                <span>{{ city }}</span>
+            </li>
+        </ul>
+
+        <div ng-include="'other.html'">
+
+        </div>
+
+
+        <button ng-click="changeStatus($event)">Status</button>
+        <p>{{ status }}</p>
+
+        <ul ng-switch on="status">
+            <li ng-switch-when="true">True</li>
+            <li ng-switch-when="false">False</li>
+        </ul>
+
+        <img ng-src="{{ src }}" />
+
+        <div ng-if="status">
+            ng-if show
+        </div>
+    </div>
+
+</body>
+</html>
