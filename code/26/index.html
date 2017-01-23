@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../../vendor/angular/angularjs.js"></script>
+    <script type="text/javascript" src="app/index.js"></script>
+
+</head>
+
+<body>
+
+    <div ng-app="myApp">
+
+        <script type="text/ng-template" id="customTags2">
+            <div>
+                Cindy {{ name }}
+            </div>
+        </script>
+        <div ng-controller="firstController">
+            <custom-tags></custom-tags>
+            <custom-tags2></custom-tags2>
+        </div>
+
+    </div>
+
+    <!--<div ng-include="'other.html'">-->
+
+</body>
+</html>
