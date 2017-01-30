@@ -6,19 +6,9 @@ var myApp = angular.module('myApp',[])
     .directive('customTags', function () {
         return {
             restrict: 'ECAM',
-            templateUrl: 'tmp/other.html',
+            template: '<div>New <span ng-transclude></span></div>',
             replace: true,
-            compile: function () {
-                console.log(1);
-            }
-        }
-    })
-    
-    .directive('customTags2', function () {
-        return {
-            restrict: 'ECAM',
-            templateUrl: 'customTags2',
-            replace: true,
+            transclude: true,
             compile: function () {
                 console.log(1);
             }

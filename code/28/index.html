@@ -6,19 +6,21 @@
 
     <script type="text/javascript" src="../../vendor/angular/angularjs.js"></script>
     <script type="text/javascript" src="app/index.js"></script>
-
 </head>
-
 <body>
-
     <div ng-app="myApp">
-
         <div ng-controller="firstController">
-            <custom-tags>Old</custom-tags>
+            <!--
+                1, div convert to DOM
+                2, the default priority is 0, first define, first use
+            -->
+            <div ng-repeat="user in users" custom-tags custom-tags2></div>
+            <!--<li ng-repeat="user in users">-->
+                <!--{{ user.id }}-->
+                <!--{{ user.name }}-->
+            <!--</li>-->
         </div>
-
     </div>
-
 
 </body>
 </html>
