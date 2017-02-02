@@ -8,7 +8,8 @@
 <div ng-app="myApp">
 
     <div ng-controller="firstController">
-        <div book-list>
+        {{ books }}
+        <div book-list books="books">
         </div>
     </div>
 

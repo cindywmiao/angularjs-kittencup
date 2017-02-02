@@ -2,11 +2,12 @@
  * Created by Cindy.Wang on 1/29/17.
  */
 
-var myApp = angular.module('myApp', [])
+angular.module('myApp', [])
+
     .directive('bookList', function () {
         return {
-            restrict: 'EACM',
-            controller : function ($scope) {
+            restrict: 'ECAM',
+            controller: function ($scope) {
                 $scope.books = [
                     {
                         name: 'php'
@@ -19,33 +20,37 @@ var myApp = angular.module('myApp', [])
                     }
                 ];
 
-                this.addBook = function () {
-                    // $scope.books.append({name: 'c++'});
-                    // // $scope.$apply(function () {
-                    // //
-                    // // });
-                    alert('test');
-                };
+                this.addBook = function(){
+
+                    $scope.$apply(function(){
+                        $scope.books.push({
+                            name:'Angularjs'
+                        })
+                    });
+                }
             },
-            controllerAs: 'bookListController',
-            template : '<ul><li ng-repeat="book in books">{{ book.name }}</li></ul>',
-            replace: true,
-            link: function (scope, iElement, iAttr, bookListController) {
-                iElement.on('click', bookListController.addBook)
+            controllerAs:'bookListController',
+            template: '<div><ul><li ng-repeat="book in books">{{book.name}}</li></ul><book-add></book-add></div>',
+            replace:true
+
+        }
+
+    })
+
+    .directive('bookAdd',function(){
+        return {
+            restrict:'ECAM',
+            require:'^bookList',
+            template:'<button type="button">添加</button>',
+            replace:true,
+            link:function(scope,iElement,iAttrs,bookListController){
+                iElement.on('click',bookListController.addBook);
             }
-        };
+        }
     })
 
     .controller('firstController', ['$scope', function ($scope) {
-        // $scope.books = [
-        //     {
-        //         name: 'php'
-        //     },
-        //     {
-        //         name: 'javascript'
-        //     },
-        //     {
-        //         name: 'java'
-        //     }
-        // ];
+        // console.log($scope);
+
+
     }]);
